@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Polen – Land, Städte, Geschichte, Küche</title>
+<meta name="description" content="Ein Überblick über Polen: Fakten, Städte, Geschichte, Küche und Natur.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#FBFAF8;
+  --ink:#1B1F2A;
+  --red:#C8102E;
+  --sea:#1F3A4D;
+  --mist:#E9E6E1;
+  --muted:#5A6070;
+  --head:"Bricolage Grotesque","Helvetica Neue",Arial,sans-serif;
+  --body:"Source Serif 4",Georgia,"Times New Roman",serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 1.125rem/1.7 var(--body)}
+h1,h2,h3{font-family:var(--head);line-height:1.05;margin:0}
+a{color:var(--red)}
+:focus-visible{outline:3px solid var(--red);outline-offset:3px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 1.5rem}
+
+/* Navigation */
+nav{position:sticky;top:0;z-index:5;background:var(--paper);border-bottom:1px solid var(--mist)}
+nav .wrap{display:flex;gap:1.5rem;align-items:center;overflow-x:auto;padding-top:.8rem;padding-bottom:.8rem;white-space:nowrap}
+nav strong{font-family:var(--head);font-weight:800;margin-right:auto}
+nav a{font-family:var(--head);font-weight:500;font-size:.95rem;color:var(--ink);text-decoration:none}
+nav a:hover{color:var(--red)}
+
+/* Hero: Flagge als Plakat – oben weiß, unten rot */
+.hero{position:relative;min-height:88vh;display:grid;grid-template-rows:1fr 1fr;overflow:hidden}
+.hero .top{background:#fff;display:flex;align-items:flex-end;padding-bottom:0}
+.hero .bottom{background:var(--red);color:#fff}
+.hero h1{font-weight:800;font-size:clamp(5rem,26vw,19rem);letter-spacing:-.04em;line-height:.8;margin:0;transform:translateY(46%);position:relative;z-index:2;mix-blend-mode:normal}
+.hero h1 span{display:inline-block}
+.hero .top .wrap{width:100%}
+.hero .top h1{color:var(--red);clip-path:inset(0 0 46% 0);transform:none}
+.hero .claim{position:absolute;left:0;right:0;bottom:2.5rem}
+.hero .claim p{max-width:34ch;margin:0;font-size:1.35rem;line-height:1.4}
+.hero .ghost{position:absolute;left:0;right:0;top:50%;z-index:3}
+.hero .ghost h1{color:#fff;clip-path:inset(54% 0 0 0);transform:translateY(-46%)}
+
+/* Abschnitte */
+section{padding:5.5rem 0}
+section h2{font-size:clamp(2.2rem,5vw,3.6rem);font-weight:800;letter-spacing:-.02em;margin-bottom:1.5rem}
+.lead{max-width:60ch;font-size:1.25rem}
+.alt{background:var(--mist)}
+
+/* Fakten */
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:2.5rem 2rem;margin-top:3rem}
+.facts dt{font-family:var(--head);font-weight:800;font-size:2.4rem;line-height:1;color:var(--red)}
+.facts dd{margin:.4rem 0 0;color:var(--muted);font-size:1rem}
+.facts dt{overflow-wrap:anywhere}
+
+/* Städte */
+.tabs{display:flex;flex-wrap:wrap;gap:.5rem;margin:2rem 0 1.5rem}
+.tabs button{font:500 1rem var(--head);padding:.6rem 1.1rem;border:2px solid var(--ink);background:transparent;color:var(--ink);cursor:pointer;border-radius:999px}
+.tabs button[aria-selected="true"]{background:var(--ink);color:#fff}
+.city{display:none;grid-template-columns:1fr 1fr;gap:3rem;align-items:start}
+.city.on{display:grid}
+.city h3{font-size:2.2rem;margin-bottom:.5rem}
+.city .tag{font-family:var(--head);color:var(--red);font-weight:500;margin:0 0 1rem}
+.city ul{margin:0;padding-left:1.2rem}
+.city li{margin-bottom:.5rem}
+@media (max-width:760px){.city.on{grid-template-columns:1fr;gap:1.5rem}}
+
+/* Zeitleiste */
+.timeline{list-style:none;margin:3rem 0 0;padding:0;border-left:3px solid var(--red)}
+.timeline li{position:relative;padding:0 0 2rem 2rem;max-width:70ch}
+.timeline li::before{content:"";position:absolute;left:-10px;top:.55rem;width:17px;height:17px;border-radius:50%;background:var(--paper);border:3px solid var(--red)}
+.timeline b{font-family:var(--head);font-weight:800;font-size:1.4rem;display:block;line-height:1.2}
+
+/* Küche & Natur */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:2rem 3rem;margin-top:2.5rem}
+.grid h3{font-size:1.5rem;margin-bottom:.3rem}
+.grid p{margin:0;color:var(--muted);font-size:1.05rem}
+.sea{background:var(--sea);color:#fff}
+.sea .grid p{color:#CFDCE5}
+.sea .lead{color:#E3EBF0}
+
+footer{padding:3rem 0;background:var(--ink);color:#C9CDD6;font-size:.95rem}
+footer a{color:#fff}
+</style>
+</head>
+<body>
+
+<nav aria-label="Hauptnavigation">
+  <div class="wrap">
+    <strong>Polen</strong>
+    <a href="#fakten">Fakten</a>
+    <a href="#politik">Politik</a>
+    <a href="#staedte">Städte</a>
+    <a href="#geschichte">Geschichte</a>
+    <a href="#kueche">Küche</a>
+    <a href="#natur">Natur</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="top"><div class="wrap"><h1 aria-hidden="true">Polska</h1></div></div>
+  <div class="bottom"></div>
+  <div class="ghost" aria-hidden="true"><div class="wrap"><h1>Polska</h1></div></div>
+  <div class="claim"><div class="wrap"><p>Polen, das Land an der Weichsel: von den Ostseestränden bis in die Hohe Tatra.</p></div></div>
+  <h1 class="sr" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Polen</h1>
+</header>
+
+<main>
+<section id="fakten">
+  <div class="wrap">
+    <h2>Polen auf einen Blick</h2>
+    <p class="lead">Polen liegt im Herzen Europas und grenzt an Deutschland, Tschechien, die Slowakei, die Ukraine, Belarus, Litauen und die russische Exklave Kaliningrad. Im Norden bildet die Ostsee die Küste.</p>
+    <dl class="facts">
+      <div><dt>Karol Nawrocki</dt><dd>Staatspräsident seit 6. August 2025, parteilos, von der PiS unterstützt. Ministerpräsident ist Donald Tusk (KO).</dd></div>
+      <div><dt>Złoty (PLN)</dt><dd>Währung, 1 Złoty = 100 Grosz. Polen hat den Euro nicht eingeführt.</dd></div>
+      <div><dt>rund 37 Mio.</dt><dd>Einwohner, Tendenz leicht sinkend. Hauptstadt ist Warschau.</dd></div>
+      <div><dt>Polnisch</dt><dd>Amtssprache. Kaschubisch ist als Regionalsprache anerkannt, u. a. Deutsch als Minderheitensprache.</dd></div>
+      <div><dt>EU seit 2004</dt><dd>Mitglied seit 1. Mai 2004, im Schengen-Raum seit 2007, 53 Sitze im Europäischen Parlament. NATO-Mitglied seit 1999.</dd></div>
+      <div><dt>Gespaltene Macht</dt><dd>Mitte-Links-Regierung und rechtskonservativer Präsident blockieren sich gegenseitig. Details im nächsten Abschnitt.</dd></div>
+    </dl>
+  </div>
+</section>
+
+<section id="politik" class="alt">
+  <div class="wrap">
+    <h2>Politische Lage (Stand 11.11.2026)</h2>
+    <p class="lead">Polen ist eine parlamentarische Republik. Das Parlament besteht aus Sejm (460 Abgeordnete) und Senat (100 Sitze). Der Präsident wird direkt für fünf Jahre gewählt und kann Gesetze mit einem Veto stoppen. Der Sejm braucht eine Dreifünftelmehrheit, um es zu überstimmen.</p>
+    <div class="grid pol">
+      <div>
+        <h3>Zwei Lager, zwei Machtzentren</h3>
+        <p>Seit Ende 2023 regiert eine Koalition unter Donald Tusk, getragen von seiner Bürgerkoalition (KO). Im Juni 2025 gewann in der Stichwahl knapp der Historiker Karol Nawrocki gegen Tusks Verbündeten Rafał Trzaskowski. Seitdem sitzen Regierung und Präsident in entgegengesetzten Lagern. Berichten zufolge blockiert Nawrocki mit zahlreichen Vetos viele Gesetzesvorhaben der Regierung.</p>
+      </div>
+      <div>
+        <h3>Streit ums Verfassungsgericht</h3>
+        <p>Ende Oktober 2026 eskalierte der Konflikt um die Besetzung des Verfassungsgerichts. Der Gerichtspräsident und sein Stellvertreter wurden vorläufig abgesetzt, Nawrocki weigert sich, fünf vom Parlament nominierte Richter zu vereidigen. Der Präsident wirft der Regierung vor, eine Verfassungskrise ausgelöst zu haben. Die Regierung und mehrere frühere Gerichtspräsidenten sehen die Verletzung der Gerichtsautonomie dagegen beim Präsidenten.</p>
+      </div>
+      <div>
+        <h3>Ausblick: Wahl im Herbst 2027</h3>
+        <p>Die Parlamentswahl ist für Herbst 2027 vorgesehen. Die Regierung steht laut Analysen unter Druck, unter anderem wegen hoher Energiepreise und Inflation. Im Oppositionslager hat sich die PiS gespalten, und mit der Konfederacja gewinnen Parteien am rechten Rand an Gewicht.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="staedte">
+  <div class="wrap">
+    <h2>Fünf Städte, fünf Charaktere</h2>
+    <div class="tabs" role="tablist" aria-label="Städte">
+      <button role="tab" aria-selected="true" aria-controls="c-warschau" id="t-warschau">Warschau</button>
+      <button role="tab" aria-selected="false" aria-controls="c-krakau" id="t-krakau">Krakau</button>
+      <button role="tab" aria-selected="false" aria-controls="c-danzig" id="t-danzig">Danzig</button>
+      <button role="tab" aria-selected="false" aria-controls="c-breslau" id="t-breslau">Breslau</button>
+      <button role="tab" aria-selected="false" aria-controls="c-posen" id="t-posen">Posen</button>
+    </div>
+
+    <article class="city on" id="c-warschau" role="tabpanel" aria-labelledby="t-warschau">
+      <div>
+        <h3>Warschau</h3>
+        <p class="tag">Die Hauptstadt, die sich neu erfunden hat</p>
+        <p>Im Zweiten Weltkrieg wurde Warschau zum größten Teil zerstört. Die Altstadt wurde danach nach historischen Plänen und Gemälden wieder aufgebaut und steht heute auf der UNESCO-Welterbeliste. Daneben wächst eine moderne Skyline.</p>
+      </div>
+      <ul>
+        <li>Altstadt (Stare Miasto) und Königsschloss</li>
+        <li>Museum der Geschichte der polnischen Juden POLIN</li>
+        <li>Museum des Warschauer Aufstands</li>
+        <li>Łazienki-Park mit dem Chopin-Denkmal</li>
+        <li>Kulturpalast als markante Landmarke</li>
+      </ul>
+    </article>
+
+    <article class="city" id="c-krakau" role="tabpanel" aria-labelledby="t-krakau" hidden>
+      <div>
+        <h3>Krakau</h3>
+        <p class="tag">Die Stadt der Könige und Studenten</p>
+        <p>Krakau (Kraków) war lange Residenz der polnischen Könige und blieb vom Krieg weitgehend verschont. Die Altstadt gehörte 1978 zu den ersten Stätten auf der UNESCO-Welterbeliste. Die Jagiellonen-Universität zählt zu den ältesten Mittel­europas.</p>
+      </div>
+      <ul>
+        <li>Hauptmarkt (Rynek Główny) mit den Tuchhallen</li>
+        <li>Wawel mit Burg und Kathedrale</li>
+        <li>Jüdisches Viertel Kazimierz</li>
+        <li>Salzbergwerk Wieliczka in der Nähe</li>
+        <li>Gedenkstätte Auschwitz-Birkenau (ca. 70 km entfernt)</li>
+      </ul>
+    </article>
+
+    <article class="city" id="c-danzig" role="tabpanel" aria-labelledby="t-danzig" hidden>
+      <div>
+        <h3>Danzig</h3>
+        <p class="tag">Hansestadt und Wiege der Solidarność</p>
+        <p>Danzig (Gdańsk) an der Mündung der Mottlau ist von Giebelhäusern, Backsteinkirchen und Kränen der Werft geprägt. Hier begann 1980 mit den Streiks auf der Lenin-Werft die Solidarność-Bewegung.</p>
+      </div>
+      <ul>
+        <li>Langer Markt und Neptunbrunnen</li>
+        <li>Marienkirche, eine der größten Backsteinkirchen der Welt</li>
+        <li>Europäisches Solidarność-Zentrum</li>
+        <li>Bernstein an der Mariacka-Straße</li>
+        <li>Strände von Sopot und Gdynia</li>
+      </ul>
+    </article>
+
+    <article class="city" id="c-breslau" role="tabpanel" aria-labelledby="t-breslau" hidden>
+      <div>
+        <h3>Breslau</h3>
+        <p class="tag">Die Stadt auf den Inseln und Brücken</p>
+        <p>Breslau (Wrocław) liegt an der Oder, die sich hier in mehrere Arme teilt, und hat über hundert Brücken. Die Stadt hatte im Lauf der Geschichte böhmische, habsburgische, preußische und polnische Herrscher. Überall in der Stadt verstecken sich kleine Bronze-Zwerge.</p>
+      </div>
+      <ul>
+        <li>Marktplatz (Rynek) mit dem gotischen Rathaus</li>
+        <li>Dominsel (Ostrów Tumski)</li>
+        <li>Jahrhunderthalle, UNESCO-Welterbe</li>
+        <li>Panorama von Racławice</li>
+        <li>Die Zwerge (krasnale) suchen</li>
+      </ul>
+    </article>
+
+    <article class="city" id="c-posen" role="tabpanel" aria-labelledby="t-posen" hidden>
+      <div>
+        <h3>Posen</h3>
+        <p class="tag">Wo Polen begann</p>
+        <p>Posen (Poznań) gilt als eine der Wiegen des polnischen Staates. Der bunte Marktplatz mit Renaissance-Rathaus ist bekannt für die Ziegenböcke, die täglich um 12 Uhr an der Rathausuhr aufeinander losgehen.</p>
+      </div>
+      <ul>
+        <li>Alter Markt (Stary Rynek) mit dem Rathaus</li>
+        <li>Dom auf der Dominsel Ostrów Tumski</li>
+        <li>Posener Messe und Universitätsstadt</li>
+        <li>St.-Martins-Hörnchen (Rogale świętomarcińskie)</li>
+        <li>Malta-See für Sport und Erholung</li>
+      </ul>
+    </article>
+  </div>
+</section>
+
+<section id="geschichte" class="alt">
+  <div class="wrap">
+    <h2>Geschichte in sieben Stationen</h2>
+    <ol class="timeline">
+      <li><b>966</b>Fürst Mieszko I. lässt sich taufen. Dieses Ereignis gilt als Beginn des polnischen Staates.</li>
+      <li><b>1385–1569</b>Polen und Litauen schließen sich zusammen, 1569 entsteht mit der Union von Lublin die Adelsrepublik. Sie zählt zu den größten Staaten Europas.</li>
+      <li><b>1772–1795</b>Russland, Preußen und Österreich teilen Polen in drei Etappen unter sich auf. Der Staat verschwindet von der Landkarte.</li>
+      <li><b>1918</b>Nach dem Ersten Weltkrieg entsteht Polen als unabhängiger Staat neu.</li>
+      <li><b>1939–1945</b>Deutschland überfällt Polen und beginnt damit den Zweiten Weltkrieg. Das Land erleidet Besatzung, Völkermord und massive Zerstörung. Nach dem Krieg verschieben sich die Grenzen nach Westen.</li>
+      <li><b>1980–1989</b>Die Gewerkschaft Solidarność um Lech Wałęsa wird zur Massenbewegung. 1989 führen Verhandlungen am Runden Tisch zu teilweise freien Wahlen und zum Ende der kommunistischen Herrschaft.</li>
+      <li><b>2004</b>Polen tritt der Europäischen Union bei.</li>
+    </ol>
+  </div>
+</section>
+
+<section id="kueche">
+  <div class="wrap">
+    <h2>Was auf den Tisch kommt</h2>
+    <p class="lead">Die polnische Küche ist deftig, saisonal und stark von Sauerkraut, Rote Bete, Pilzen und Sauerrahm geprägt.</p>
+    <div class="grid">
+      <div><h3>Pierogi</h3><p>Gefüllte Teigtaschen, herzhaft mit Kartoffeln und Quark, mit Fleisch oder Sauerkraut und Pilzen, süß mit Heidelbeeren.</p></div>
+      <div><h3>Bigos</h3><p>Der „Jägertopf“ aus Sauer- und Weißkraut, mehreren Fleischsorten und Würsten, lange geschmort.</p></div>
+      <div><h3>Żurek</h3><p>Saure Roggenmehlsuppe mit Wurst und hartem Ei, oft im Brotlaib serviert.</p></div>
+      <div><h3>Barszcz</h3><p>Klare Rote-Bete-Suppe, zu Weihnachten mit kleinen Pilz-Teigtaschen (uszka).</p></div>
+      <div><h3>Oscypek</h3><p>Geräucherter Schafskäse aus den Tatra-Bergen, gern gegrillt mit Preiselbeeren.</p></div>
+      <div><h3>Sernik und Makowiec</h3><p>Polnischer Käsekuchen und Mohnrolle, zwei Klassiker auf der Kaffeetafel.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="natur" class="sea">
+  <div class="wrap">
+    <h2>Landschaft zwischen Meer und Gipfeln</h2>
+    <p class="lead">Von Nord nach Süd ändert sich das Bild: Strände und Dünen, Seen und Wälder, Hügelland, dann die Karpaten.</p>
+    <div class="grid">
+      <div><h3>Ostseeküste</h3><p>Breite Sandstrände, Seebäder und im Słowiński-Nationalpark Wanderdünen, die mehrere Meter im Jahr ziehen.</p></div>
+      <div><h3>Masuren</h3><p>Eine Seenlandschaft im Nordosten mit Tausenden Seen. Beliebt für Segeln, Kajak und Radtouren.</p></div>
+      <div><h3>Białowieża-Urwald</h3><p>Einer der letzten Tieflandurwälder Europas an der Grenze zu Belarus und Heimat des Wisents.</p></div>
+      <div><h3>Hohe Tatra</h3><p>Das einzige alpine Hochgebirge Polens. Der Wanderweg zum Morskie Oko, dem „Meerauge“, ist ein Klassiker.</p></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Quellen: 
+
+                        Euronews:  <a href="https://de.euronews.com/2026/10/31/politische-krise-polen-nawrocki-regierung-gewaltsame-gerichtsubernahme" target="_blank">https://de.euronews.com/2026/10/31/politische-krise-polen-nawrocki-regierung-gewaltsame-gerichtsubernahme</a>
+                         BRF/dpa:  <a href="https://brf.be/international/2122228/" target="_blank">https://brf.be/international/2122228/</a>
+                         dpa-AFX:  <a href="https://www.finanzen.at/nachrichten/aktien/roundup-2-polens-prasident-regierung-stuerzt-land-in-verfassungskrise-1036709038" target="_blank">https://www.finanzen.at/nachrichten/aktien/roundup-2-polens-prasident-regierung-stuerzt-land-in-verfassungskrise-1036709038</a>
+                          web.de:  <a href="https://web.de/magazine/politik/fuehrt-verfassungsgericht-polen-haengt-fragt-42901970" target="_blank">https://web.de/magazine/politik/fuehrt-verfassungsgericht-polen-haengt-fragt-42901970</a>
+Deutsche Wirtschafts Nachrichten:  <a href="https://deutsche-wirtschafts-nachrichten.de/715447/rss_feed" target="_blank">https://deutsche-wirtschafts-nachrichten.de/715447/rss_feed</a>
+                  Polen-Analysen:  <a href="https://dgo-online.org/site-dgo/assets/files/1025/polenanalysen371.pdf" target="_blank">https://dgo-online.org/site-dgo/assets/files/1025/polenanalysen371.pdf</a>
+        Konrad-Adenauer-Stiftung:  <a href="https://www.kas.de/cs/laenderberichte/detail/-/content/vor-den-parlamentswahlen-2027-polens-parteienspektrum-rueckt-nach-rechts-1" target="_blank">https://www.kas.de/cs/laenderberichte/detail/-/content/vor-den-parlamentswahlen-2027-polens-parteienspektrum-rueckt-nach-rechts-1</a>
+                         stol.it:  <a href="https://www.stol.it/artikel/politik/spaltung-bei-polens-rechtskonservativer-pis-partei" target="_blank">https://www.stol.it/artikel/politik/spaltung-bei-polens-rechtskonservativer-pis-partei</a>
+
+
+
+
+    </p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var tabs=document.querySelectorAll('.tabs [role="tab"]');
+  function show(tab){
+    tabs.forEach(function(t){
+      var on=t===tab;
+      t.setAttribute('aria-selected',on?'true':'false');
+      var p=document.getElementById(t.getAttribute('aria-controls'));
+      p.classList.toggle('on',on);
+      p.hidden=!on;
+    });
+  }
+  tabs.forEach(function(t,i){
+    t.addEventListener('click',function(){show(t)});
+    t.addEventListener('keydown',function(e){
+      var n=null;
+      if(e.key==='ArrowRight')n=tabs[(i+1)%tabs.length];
+      if(e.key==='ArrowLeft')n=tabs[(i-1+tabs.length)%tabs.length];
+      if(n){n.focus();show(n);e.preventDefault();}
+    });
+  });
+})();
+</script>
+</body>
+</html>
