@@ -28,14 +28,14 @@ a{color:var(--red)}
 :focus-visible{outline:3px solid var(--red);outline-offset:3px}
 .wrap{max-width:1080px;margin:0 auto;padding:0 1.5rem}
 
-/* Navigation */
+/* Buttons für oben */
 nav{position:sticky;top:0;z-index:5;background:var(--paper);border-bottom:1px solid var(--mist)}
 nav .wrap{display:flex;gap:1.5rem;align-items:center;overflow-x:auto;padding-top:.8rem;padding-bottom:.8rem;white-space:nowrap}
 nav strong{font-family:var(--head);font-weight:800;margin-right:auto}
 nav a{font-family:var(--head);font-weight:500;font-size:.95rem;color:var(--ink);text-decoration:none}
 nav a:hover{color:var(--red)}
 
-/* Hero: Flagge als Plakat – oben weiß, unten rot */
+/* Flage mit POLSKA !!!!!!!!!  */
 .hero{position:relative;min-height:88vh;display:grid;grid-template-rows:1fr 1fr;overflow:hidden}
 .hero .top{background:#fff;display:flex;align-items:flex-end;padding-bottom:0}
 .hero .bottom{background:var(--red);color:#fff}
@@ -48,7 +48,7 @@ nav a:hover{color:var(--red)}
 .hero .ghost{position:absolute;left:0;right:0;top:50%;z-index:3}
 .hero .ghost h1{color:#fff;clip-path:inset(54% 0 0 0);transform:translateY(-46%)}
 
-/* Abschnitte */
+/* Abschnitt */
 section{padding:5.5rem 0}
 section h2{font-size:clamp(2.2rem,5vw,3.6rem);font-weight:800;letter-spacing:-.02em;margin-bottom:1.5rem}
 .lead{max-width:60ch;font-size:1.25rem}
@@ -72,13 +72,13 @@ section h2{font-size:clamp(2.2rem,5vw,3.6rem);font-weight:800;letter-spacing:-.0
 .city li{margin-bottom:.5rem}
 @media (max-width:760px){.city.on{grid-template-columns:1fr;gap:1.5rem}}
 
-/* Zeitleiste */
+/* Strahl für die Zeit */
 .timeline{list-style:none;margin:3rem 0 0;padding:0;border-left:3px solid var(--red)}
 .timeline li{position:relative;padding:0 0 2rem 2rem;max-width:70ch}
 .timeline li::before{content:"";position:absolute;left:-10px;top:.55rem;width:17px;height:17px;border-radius:50%;background:var(--paper);border:3px solid var(--red)}
 .timeline b{font-family:var(--head);font-weight:800;font-size:1.4rem;display:block;line-height:1.2}
 
-/* Küche & Natur */
+/* Essen und Natur */
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:2rem 3rem;margin-top:2.5rem}
 .grid h3{font-size:1.5rem;margin-bottom:.3rem}
 .grid p{margin:0;color:var(--muted);font-size:1.05rem}
